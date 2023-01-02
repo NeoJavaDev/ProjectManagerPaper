@@ -10,13 +10,11 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
     { path: '/user',           title: 'User Profile',      icon:'nc-single-02',  class: '' },
-    { path: '/users',          title: 'User List',      icon:'nc-single-02',  class: '' },
-    { path: '/projects',       title: 'Project List',         icon:'nc-bank',       class: '' },
-    { path: '/tasks',          title: 'Task List',      icon:'nc-single-02',  class: '' },
-    { path: '/maps',           title: 'TO BE DELETE',              icon:'nc-pin-3',      class: '' },
-    { path: '/notifications',  title: 'TO BE DELETE',     icon:'nc-bell-55',    class: '' },
-    { path: '/notifications',  title: 'TO BE DELETE',     icon:'nc-bell-55',    class: '' },
-    { path: '/table',          title: 'TO BE DELETE',        icon:'nc-tile-56',    class: '' }
+    { path: '/dashboard',      title: 'Dashboard',         icon:'nc-chart-pie-36',  class: '' },
+    { path: '/users',          title: 'User List',         icon:'nc-circle-10',  class: '' },
+    { path: '/projects',       title: 'Project List',      icon:'nc-chart-bar-32',       class: '' },
+    { path: '/tasks',          title: 'Task List',         icon:'nc-tile-56',  class: '' },
+    { path: '/notifications',  title: 'Notification',      icon:'nc-bell-55',    class: '' }
 ];
 
 @Component({

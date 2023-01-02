@@ -11,22 +11,16 @@ import { UserListComponent } from "app/pages/crud/user/user-list/user-list.compo
 
 import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
-import { MapsComponent } from "../../pages/maps/maps.component";
 import { NotificationsComponent } from "../../pages/notifications/notifications.component";
-import { TableComponent } from "../../pages/table/table.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
-import { UpgradeComponent } from "../../pages/upgrade/upgrade.component";
 import { UserProfileComponent } from "../../pages/user-profile/user-profile.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user", component: UserProfileComponent },
-  { path: "table", component: TableComponent },
   { path: "typography", component: TypographyComponent },
   { path: "icons", component: IconsComponent },
-  { path: "maps", component: MapsComponent },
   { path: "notifications", component: NotificationsComponent },
-  { path: "upgrade", component: UpgradeComponent },
 
   { path: "users", component: UserListComponent },
   { path: "projects", component: ProjectListComponent },

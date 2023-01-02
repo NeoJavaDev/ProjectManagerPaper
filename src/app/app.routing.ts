@@ -1,13 +1,15 @@
 import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 export const AppRoutes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  },
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [
@@ -17,6 +19,6 @@ export const AppRoutes: Routes = [
   }]},
   {
     path: '**',
-    redirectTo: 'dashboard'
+    component: PageNotFoundComponent
   }
 ]

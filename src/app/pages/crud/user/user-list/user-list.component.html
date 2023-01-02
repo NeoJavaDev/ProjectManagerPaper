@@ -1,1 +1,54 @@
-<p>user-list works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Registered Users</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Surname
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+                Username
+              </th>
+              <th>
+                Email
+              </th>
+              <th>
+                Nationality
+              </th>
+            </thead>
+            <tbody *ngFor="let user of users">
+              <tr (click)="goToUser(user)">
+                <td>
+                  {{ user.id }}
+                </td>
+                <td>
+                  {{ user.name }}
+                </td>
+                <td>
+                  {{ user.username }}
+                </td>
+                <td>
+                  {{ user.email }}
+                </td>
+                <td>
+                  {{ user.nationality }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,63 @@
-<p>task-list works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Your Tasks</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+                Management
+              </th>
+              <th>
+                Developer
+              </th>
+              <th>
+                Total Costs
+              </th>
+              <th>
+                Revenue
+              </th>
+              <th>
+                Profit/Loss
+              </th>
+            </thead>
+            <tbody *ngFor="let task of tasks">
+              <tr (click)="goToTask(task)">
+                <td>
+                  {{ task.id }}
+                </td>
+                <td>
+                  {{ task.name }}
+                </td>
+                <td>
+                  {{ task.management | currency:'€' :true:'1.0' }}
+                </td>
+                <td>
+                  {{ task.developer | currency:'€' :true:'1.0' }}
+                </td>
+                <td>
+                  {{ task.cost | currency:'€' :true:'1.0' }}
+                </td>
+                <td>
+                  {{ task.revenue | currency:'€' :true:'1.0' }}
+                </td>
+                <td>
+                  {{ task.revenue - task.cost | currency:'€' :true:'1.0' }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
