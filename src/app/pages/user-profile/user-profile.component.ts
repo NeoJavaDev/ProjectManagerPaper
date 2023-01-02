@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'user-profile.component.html'
 })
 
-export class UserComponent implements OnInit{
+export class UserProfileComponent implements OnInit{
     ngOnInit(){
     }
 }

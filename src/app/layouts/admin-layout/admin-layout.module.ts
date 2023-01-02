@@ -12,9 +12,13 @@ import { NotificationsComponent } from "../../pages/notifications/notifications.
 import { TableComponent } from "../../pages/table/table.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { UpgradeComponent } from "../../pages/upgrade/upgrade.component";
-import { UserComponent } from "../../pages/user/user-profile.component";
+import { UserProfileComponent } from "../../pages/user-profile/user-profile.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { UserListComponent } from "app/pages/crud/user/user-list/user-list.component";
+import { ProjectListComponent } from "app/pages/crud/project/project-list/project-list.component";
+import { TaskListComponent } from "app/pages/crud/task/task-list/task-list.component";
+
 
 @NgModule({
   imports: [
@@ -25,13 +29,16 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
   ],
   declarations: [
     DashboardComponent,
-    UserComponent,
+    UserProfileComponent,
     TableComponent,
     UpgradeComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    UserListComponent,
+    ProjectListComponent,
+    TaskListComponent
   ],
 })
 export class AdminLayoutModule {}
