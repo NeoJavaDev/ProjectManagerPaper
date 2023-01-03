@@ -22,6 +22,7 @@ export class ProjectEditComponent implements OnInit {
     if(projectId) {
       this.adminService.getProjectById(+projectId)
       .subscribe(project => this.project = project);
+      console.log(this.project)
     }
   }
 

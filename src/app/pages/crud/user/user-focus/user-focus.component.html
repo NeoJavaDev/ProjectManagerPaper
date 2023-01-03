@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="user">
   <div class="col-md-4">
     <div class="card card-user">
       <div class="image">
@@ -8,16 +8,16 @@
         <div class="author">
           <a href="#">
             <img class="avatar border-gray" src="" alt="...">
-            <h5 class="title">Fact Checker</h5>
+            <h5 class="title">{{ user.name }}</h5>
           </a>
           <p class="description">
-            @FactChecker
+            {{ user.surname }}
           </p>
         </div>
         <p class="description text-center">
-          "description"
-          <br> Txt
-          <br> Text
+          {{ user.name }}
+          <br> {{ user.username }}
+          <br> {{ user.email }}
         </p>
       </div>
       <div class="card-footer">
@@ -114,3 +114,4 @@
     </div>
   </div>
 </div>
+<h3 *ngIf="!user" class="center">Aucun user à éditer...</h3>

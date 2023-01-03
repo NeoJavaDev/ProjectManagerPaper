@@ -22,7 +22,6 @@ export class TaskEditComponent implements OnInit {
     if(taskId) {
       this.adminService.getTaskById(+taskId)
       .subscribe(task => this.task = task);
-      console.log(this.task)
     }
   }
 

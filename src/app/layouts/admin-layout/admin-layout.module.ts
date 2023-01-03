@@ -18,6 +18,7 @@ import { TaskListComponent } from "app/pages/crud/task/task-list/task-list.compo
 import { ProjectEditComponent } from "app/pages/crud/project/project-edit/project-edit.component";
 import { UserEditComponent } from "app/pages/crud/user/user-edit/user-edit.component";
 import { TaskEditComponent } from "app/pages/crud/task/task-edit/task-edit.component";
+import { UserFocusComponent } from "app/pages/crud/user/user-focus/user-focus.component";
 
 
 @NgModule({
@@ -37,7 +38,9 @@ import { TaskEditComponent } from "app/pages/crud/task/task-edit/task-edit.compo
     ProjectListComponent,
     TaskListComponent,
     UserEditComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    TaskEditComponent,
+    UserFocusComponent
   ],
 })
 export class AdminLayoutModule {}
