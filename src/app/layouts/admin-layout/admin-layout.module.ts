@@ -15,6 +15,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { UserListComponent } from "app/pages/crud/user/user-list/user-list.component";
 import { ProjectListComponent } from "app/pages/crud/project/project-list/project-list.component";
 import { TaskListComponent } from "app/pages/crud/task/task-list/task-list.component";
+import { ProjectEditComponent } from "app/pages/crud/project/project-edit/project-edit.component";
+import { UserEditComponent } from "app/pages/crud/user/user-edit/user-edit.component";
+import { TaskEditComponent } from "app/pages/crud/task/task-edit/task-edit.component";
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { TaskListComponent } from "app/pages/crud/task/task-list/task-list.compo
     NotificationsComponent,
     UserListComponent,
     ProjectListComponent,
-    TaskListComponent
+    TaskListComponent,
+    UserEditComponent,
+    ProjectEditComponent,
+    TaskEditComponent
   ],
 })
 export class AdminLayoutModule {}

@@ -17,6 +17,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from "@angular/common";
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AdminService } from './layouts/admin-layout/admin.service';
+import { FormsModule } from '@angular/forms';
 
 
 registerLocaleData(localeFr);
@@ -44,7 +46,7 @@ registerLocaleData(localeFr);
     {
       provide: LOCALE_ID,
       useValue: 'fr-FR'
-    }
+    }    
   ],
   bootstrap: [AppComponent]
 })

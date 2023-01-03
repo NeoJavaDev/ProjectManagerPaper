@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AdminService } from 'app/layouts/admin-layout/admin.service';
+import { Task } from '../model/task';
 
 @Component({
   selector: 'app-task-edit',
@@ -8,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskEditComponent implements OnInit {
 
-  constructor() { }
+  @Input() task: Task|any;
+  tasks: Task[]|any;
 
-  ngOnInit(): void {
+  constructor(private adminService: AdminService, private router: Router,private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.tasks = this.adminService.getTasks();
+    const taskId: string|null = this.route.snapshot.paramMap.get('id');
+    if(taskId) {
+      this.adminService.getTaskById(+taskId)
+      .subscribe(task => this.task = task);
+    }
+  }
+
+  onSubmit() {
+    console.log('Submit form !')
+    this.router.navigate(['/task', this.task.id]);
   }
 
 }

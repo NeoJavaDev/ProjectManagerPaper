@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AdminService } from 'app/layouts/admin-layout/admin.service';
+import { Project } from '../model/project';
 
 @Component({
   selector: 'app-project-edit',
@@ -8,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectEditComponent implements OnInit {
 
-  constructor() { }
+  @Input() project: Project|any;
+  projects: Project[]|any;
 
-  ngOnInit(): void {
+  constructor(private adminService: AdminService, private router: Router,private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.projects = this.adminService.getProjects();
+    const projectId: string|null = this.route.snapshot.paramMap.get('id');
+    if(projectId) {
+      this.adminService.getProjectById(+projectId)
+      .subscribe(project => this.project = project);
+    }
+  }
+
+  onSubmit() {
+    console.log('Submit form !')
+    this.router.navigate(['/project', this.project.id]);
   }
 
 }

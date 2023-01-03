@@ -1,1 +1,118 @@
-<p>project-edit works!</p>
+<form *ngIf="project" (ngSubmit)="onSubmit()" #projectForm="ngForm">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card-panel">
+
+                <!-- NAME -->
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+
+                    <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9àéèç ]{1,100}$"
+                        [(ngModel)]="project.name" name="name" #name="ngModel">
+
+                    <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                        Le nom du projet est requis (1-25)
+                    </div>
+                </div>
+
+                <!-- HR COSTS BREAKDOWN -->
+
+                <h2>HR COSTS</h2>
+                <div class="form-group">
+                    <label for="managementSalaries">Management Salaries</label>
+
+                    <input type="number" class="form-control" id="managementSalaries" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.management"
+                        name="managementSalaries" #managementSalaries="ngModel">
+
+                    <div [hidden]="managementSalaries.valid || managementSalaries.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+
+                    <label for="developerSalaries">Developer Salaries</label>
+
+                    <input type="number" class="form-control" id="developerSalaries" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.developer"
+                        name="developerSalaries" #developerSalaries="ngModel">
+
+                    <div [hidden]="developerSalaries.valid || developerSalaries.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+                </div>
+
+                <!-- COSTS BREAKDOWN -->
+
+                <h2>COSTS BREAKDOWN</h2>
+                <div class="form-group">
+                    <label for="softwareCosts">Software Costs</label>
+
+                    <input type="number" class="form-control" id="softwareCosts" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.software" name="softwareCosts"
+                        #softwareCosts="ngModel">
+
+                    <div [hidden]="softwareCosts.valid || softwareCosts.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+
+                    <label for="harwareCosts">Hardware Costs</label>
+
+                    <input type="number" class="form-control" id="hardwareCosts" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.hardware" name="hardwareCosts"
+                        #hardwareCosts="ngModel">
+
+                    <div [hidden]="hardwareCosts.valid || hardwareCosts.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+
+                    <label for="premisesCosts">Premises</label>
+
+                    <input type="number" class="form-control" id="premisesCosts" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.premises" name="premisesCosts"
+                        #premisesCosts="ngModel">
+
+                    <div [hidden]="premisesCosts.valid || premisesCosts.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+
+                    <label for="furnitureCosts">Furniture & Consumables</label>
+
+                    <input type="number" class="form-control" id="furnitureCosts" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.furniture" name="furnitureCosts"
+                        #furnitureCosts="ngModel">
+
+                    <div [hidden]="furnitureCosts.valid || furnitureCosts.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+
+                    <label for="sourcingCosts">Sourcing</label>
+
+                    <input type="number" class="form-control" id="sourcingCosts" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.sourcing" name="sourcingCosts"
+                        #sourcingCosts="ngModel">
+
+                    <div [hidden]="sourcingCosts.valid || sourcingCosts.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+
+                    <label for="distributionCosts">Distribution</label>
+
+                    <input type="number" class="form-control" id="distributionCosts" required
+                        pattern="^[0-9]{0,10}$" [(ngModel)]="project.distribution"
+                        name="distributionCosts" #distributionCosts="ngModel">
+
+                    <div [hidden]="distributionCosts.valid || distributionCosts.pristine" class="card-panel red accent-1">
+                        Entrez un nombre entre 0 et 10MM
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div class="divider"></div>
+    <div class="section center">
+        <button type="submit" class="waves-effect waves-light btn" [disabled]="!projectForm.form.valid">Valider</button>
+    </div>
+    <h3 *ngIf="!project" class="center">Aucun projet à éditer...</h3>
+</form>
