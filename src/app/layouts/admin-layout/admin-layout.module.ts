@@ -37,8 +37,7 @@ import { TaskEditComponent } from "app/pages/crud/task/task-edit/task-edit.compo
     ProjectListComponent,
     TaskListComponent,
     UserEditComponent,
-    ProjectEditComponent,
-    TaskEditComponent
+    ProjectEditComponent
   ],
 })
 export class AdminLayoutModule {}
