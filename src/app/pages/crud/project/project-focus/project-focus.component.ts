@@ -62,12 +62,12 @@ export class ProjectFocusComponent implements OnInit {
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
-              '#3e5170',
-              '#4acccd',
-              '#fcc468',
-              '#ef2100',
-              '#ef7895',
-              '#ef6328',
+              '#49c6ff',
+              '#174d8b',
+              '#c0e6f5',
+              '#952bc7',
+              '#8a76fd',
+              '#961919d0'
             ],
             borderWidth: 0,
             data: [software, hardware, premises, furniture, sourcing, distribution]
@@ -131,9 +131,8 @@ export class ProjectFocusComponent implements OnInit {
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
-              '#3e5170',
-              '#4acccd',
-
+              '#49c6ff',
+              '#174d8b'
             ],
             borderWidth: 0,
             data: [management, developer]
@@ -197,8 +196,8 @@ export class ProjectFocusComponent implements OnInit {
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
-              '#3e5170',
-              '#4acccd'
+              '#49c6ff',
+              '#174d8b'
             ],
             borderWidth: 0,
             data: [revenue, cost]

@@ -130,7 +130,6 @@ a.text-gray:focus, a.text-gray:hover{
     color: $light-gray !important;
 }
 
-
 .blockquote{
     border-left: none;
     border: 1px solid $default-color;
@@ -170,4 +169,23 @@ a.text-gray:focus, a.text-gray:hover{
             color: $opacity-8;
         }
     }
+}
+
+.icon-background1 {
+  color: #49c6ff;
+}
+.icon-background2 {
+  color: #174d8b;
+}
+.icon-background3 {
+  color: #c0e6f5;
+}
+.icon-background4 {
+  color: #952bc7;
+}
+.icon-background5 {
+  color: #8a76fd;
+}
+.icon-background6 {
+  color: #961919d0;
 }
