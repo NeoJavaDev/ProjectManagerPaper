@@ -35,4 +35,8 @@ export class TaskListComponent implements OnInit {
     this.router.navigate(["/task", task.id]);
   }
 
+  deleteTask(taskId: number) {
+    this.adminService.deleteTaskById(taskId);
+  }
+
 }
