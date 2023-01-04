@@ -139,15 +139,17 @@
       </div>
     </div>
   </div>
+
+
   <div class="col-md-4">
     <div class="card ">
       <div class="card-header ">
-        <h5 class="card-title">Task Cost Breakdown</h5>
-        <p class="card-category">subtitle</p>
+        <h5 class="card-title">Cost Breakdown</h5>
+        <p class="card-category">Project Overheads</p>
       </div>
 
       <div class="card-body ">
-        <canvas id="chartEmail"></canvas>
+        <canvas id="chartOverheads"></canvas>
       </div>
 
       <div class="card-footer ">
@@ -161,11 +163,61 @@
         </div>
         <hr>
         <div class="stats">
-          <i class="fa fa-calendar"></i> Total cost : 10000.00€
+          <i class="fa fa-calendar"></i> Total cost : {{project.software + project.hardware + project.premises + project.furniture + project.sourcing + project.distribution  | currency:'€' :true:'1.0'}}
         </div>
       </div>
     </div>
   </div>
+
+  <div class="col-md-4">
+    <div class="card ">
+      <div class="card-header ">
+        <h5 class="card-title">Cost Breakdown</h5>
+        <p class="card-category">Cost of labor</p>
+      </div>
+
+      <div class="card-body ">
+        <canvas id="chartHr"></canvas>
+      </div>
+
+      <div class="card-footer ">
+        <div class="legend">
+          <i class="fa fa-circle text-primary"></i> Management
+          <i class="fa fa-circle text-warning"></i> Developer
+        </div>
+        <hr>
+        <div class="stats">
+          <i class="fa fa-calendar"></i> Total cost : {{project.management + project.developer | currency:'€' :true:'1.0'}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card ">
+      <div class="card-header ">
+        <h5 class="card-title">Profitability</h5>
+        <p class="card-category">filler</p>
+      </div>
+
+      <div class="card-body ">
+        <canvas id="chartProfitability"></canvas>
+      </div>
+
+      <div class="card-footer ">
+        <div class="legend">
+          <i class="fa fa-circle text-secondary"></i> Revenue
+          <i class="fa fa-circle text-gray"></i> Cost
+        </div>
+        <hr>
+        <div class="stats">
+          <i class="fa fa-calendar"></i>Profit/Loss : {{project.revenue - project.cost | currency:'€' :true:'1.0' }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
   <div class="col-md-8">
