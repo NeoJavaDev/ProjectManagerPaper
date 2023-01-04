@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="project">
   <div class="col-lg-6 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body ">
@@ -6,7 +6,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Start Date</p>
-              <p class="card-title">01/03/2022<p>
+              <p class="card-title">{{ project.startDate | date }}<p>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">End Date</p>
-              <p class="card-title">31/07/2022
+              <p class="card-title">{{ project.endDate | date }}
               <p>
             </div>
           </div>
@@ -29,8 +29,9 @@
       </div>
     </div>
   </div>
-
 </div>
+
+<h3 *ngIf="!project" class="center">Aucun project à éditer...</h3>
 
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6">
@@ -39,13 +40,13 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-globe text-warning"></i>
+              <i class="nc-icon nc-badge text-warning"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Management</p>
-              <p class="card-title">15000€
+              <p class="card-title"> {{ project.management | currency:'€' :true:'1.0' }}
               <p>
             </div>
           </div>
@@ -65,13 +66,13 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-money-coins text-success"></i>
+              <i class="nc-icon nc-vector text-success"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Developer</p>
-              <p class="card-title">10000€
+              <p class="card-title">{{ project.developer | currency:'€' :true:'1.0' }}
               <p>
             </div>
           </div>
@@ -91,13 +92,13 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-vector text-danger"></i>
+              <i class="nc-icon nc-bank text-danger"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Revenue</p>
-              <p class="card-title">23000€
+              <p class="card-title">{{ project.revenue | currency:'€' :true:'1.0' }}
               <p>
             </div>
           </div>
@@ -117,13 +118,13 @@
         <div class="row">
           <div class="col-5 col-md-4">
             <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-favourite-28 text-primary"></i>
+              <i class="nc-icon nc-money-coins text-primary"></i>
             </div>
           </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Cost</p>
-              <p class="card-title">12000€
+              <p class="card-title">{{ project.cost | currency:'€' :true:'1.0' }}
               <p>
             </div>
           </div>
@@ -150,10 +151,12 @@
 
       <div class="card-footer ">
         <div class="legend">
-          <i class="fa fa-circle text-primary"></i> Task 1
-          <i class="fa fa-circle text-warning"></i> Task 2
-          <i class="fa fa-circle text-danger"></i> Task 3
-          <i class="fa fa-circle text-gray"></i> Task 4
+          <i class="fa fa-circle text-primary"></i> Software
+          <i class="fa fa-circle text-warning"></i> Hardware
+          <i class="fa fa-circle text-danger"></i> Premises
+          <i class="fa fa-circle text-gray"></i> Furniture
+          <i class="fa fa-circle text-secondary"></i> Sourcing
+          <i class="fa fa-circle text-danger"></i> Distribution
         </div>
         <hr>
         <div class="stats">
@@ -186,4 +189,6 @@
     </div>
   </div>
 </div>
+
+
 

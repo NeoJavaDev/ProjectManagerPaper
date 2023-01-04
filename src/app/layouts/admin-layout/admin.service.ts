@@ -43,9 +43,7 @@ export class AdminService {
   }
 
   public getProjectById(projectId: number): Observable<Project> {
-    return this.httpClient.get<Project>(
-      `${this.apiServerUrl}/project/${projectId}`
-    );
+    return this.httpClient.get<Project>(`${this.apiServerUrl}/project/${projectId}`);
   }
 
   public addProject(project: Project): Observable<Project> {

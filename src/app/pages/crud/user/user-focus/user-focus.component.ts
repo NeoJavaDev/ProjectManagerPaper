@@ -11,7 +11,8 @@ import { User } from '../model/user';
 })
 export class UserFocusComponent implements OnInit {
 
-  @Input() user: User|any;
+  @Input() 
+  user: User|any;
   users: User[]|any;
 
   constructor(private adminService: AdminService, private router: Router,private route: ActivatedRoute) { }

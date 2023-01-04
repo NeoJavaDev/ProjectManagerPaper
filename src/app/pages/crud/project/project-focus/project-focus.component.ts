@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'app/layouts/admin-layout/admin.service';
 import Chart from 'chart.js';
+import { Project } from '../model/project';
 
 
 @Component({
@@ -12,6 +13,10 @@ import Chart from 'chart.js';
 })
 export class ProjectFocusComponent implements OnInit {
 
+
+  project: Project|any;
+  projects: Project[]|any;
+
   public canvas : any;
   public ctx;
   public chartEmail;
@@ -19,14 +24,29 @@ export class ProjectFocusComponent implements OnInit {
   constructor(private adminService: AdminService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.projects = this.adminService.getProjects();
     const projectId: string|null = this.route.snapshot.paramMap.get('id');
+
+    if(projectId) {
+      this.adminService.getProjectById(+projectId)
+      .subscribe(project => this.project = project);
+    }
+
     this.adminService.getProjectById(+projectId)
-      .subscribe(response => {
-        let sourcing = response.sourcing;
-        let premises = response.premises;
-        let furniture = response.furniture;
-        let distribution = response.distribution;
-      
+    .subscribe(res => {
+      let management = res.management;
+      let developer = res.developer;
+
+      let software = res.software;
+      let hardware = res.hardware;
+      let premises = res.premises;
+      let furniture = res.furniture;
+      let sourcing = res.sourcing;
+      let distribution = res.sourcing;
+
+      let cost = res.cost;
+      let revenue = res.revenue;
 
       this.canvas = document.getElementById("chartEmail");
       this.ctx = this.canvas.getContext("2d");
@@ -35,17 +55,19 @@ export class ProjectFocusComponent implements OnInit {
         data: {
           labels: [1, 2, 3],
           datasets: [{
-            label: "Cost of Labor",
+            label: "Cost Breakdown",
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
-              '#e3e3e3',
+              '#3e5170',
               '#4acccd',
               '#fcc468',
-              '#ef8157'
+              '#ef2100',
+              '#ef7895',
+              '#ef6328',
             ],
             borderWidth: 0,
-            data: [sourcing, premises, furniture, distribution]
+            data: [software, hardware, premises, furniture, sourcing, distribution]
           }]
         },
 
@@ -93,7 +115,8 @@ export class ProjectFocusComponent implements OnInit {
           },
         }
       });
-    })
+    });
+
 
   }
 

@@ -17,6 +17,8 @@ export class DashboardComponent implements OnInit{
   public chartHours;
 
     ngOnInit(){
+
+      // LINE CHART
       this.chartColor = "#FFFFFF";
 
       this.canvas = document.getElementById("chartHours");
