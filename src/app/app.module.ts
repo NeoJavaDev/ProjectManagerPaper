@@ -19,6 +19,9 @@ import { registerLocaleData } from "@angular/common";
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AdminService } from './layouts/admin-layout/admin.service';
 import { FormsModule } from '@angular/forms';
+import { ProjectAddComponent } from './pages/crud/project/project-add/project-add.component';
+import { TaskAddComponent } from './pages/crud/task/task-add/task-add.component';
+import { UserAddComponent } from './pages/crud/user/user-add/user-add.component';
 
 
 registerLocaleData(localeFr);
@@ -27,7 +30,10 @@ registerLocaleData(localeFr);
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProjectAddComponent,
+    TaskAddComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
