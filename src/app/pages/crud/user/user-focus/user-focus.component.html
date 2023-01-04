@@ -8,17 +8,17 @@
       <div class="card-body">
         <div class="author">
           <a href="#">
-            <img class="avatar border-gray" src="" alt="...">
+            <img class="avatar border-gray" src="assets/img/faces/ayo-ogunseinde-1.jpg" alt="...">
             <h5 class="title">{{ user.name }}</h5>
           </a>
           <p class="description">
-            {{ user.surname }}
+            Surname : {{ user.surname }}
           </p>
         </div>
         <p class="description text-center">
-          {{ user.name }}
-          <br> {{ user.username }}
-          <br> {{ user.email }}
+          Name : {{ user.name }}
+          <br> Username : {{ user.username }}
+          <br> Email : {{ user.email }}
         </p>
       </div>
       <div class="card-footer">
@@ -47,21 +47,24 @@
         </div>
       </div>
     </div>
+
+
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">Project Members</h4>
       </div>
+
       <div class="card-body">
-        <ul class="list-unstyled team-members">
+        <ul class="list-unstyled team-members" *ngFor="let user of users">
           <li>
             <div class="row">
               <div class="col-md-2 col-2">
                 <div class="avatar">
-                  <img src="" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                  <img src="assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                 </div>
               </div>
               <div class="col-md-7 col-7">
-                Name
+                {{ user.name }}
                 <br />
                 <span class="text-muted">
                   <small>Offline</small>
@@ -72,47 +75,11 @@
               </div>
             </div>
           </li>
-          <li>
-            <div class="row">
-              <div class="col-md-2 col-2">
-                <div class="avatar">
-                  <img src="" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                </div>
-              </div>
-              <div class="col-md-7 col-7">
-                Davidson Aquitaine
-                <br />
-                <span class="text-success">
-                  <small>Available</small>
-                </span>
-              </div>
-              <div class="col-md-3 col-3 text-right">
-                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="row">
-              <div class="col-md-2 col-2">
-                <div class="avatar">
-                  <img src="" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                </div>
-              </div>
-              <div class="col-ms-7 col-7">
-                Flume
-                <br />
-                <span class="text-danger">
-                  <small>Busy</small>
-                </span>
-              </div>
-              <div class="col-md-3 col-3 text-right">
-                <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></button>
-              </div>
-            </div>
-          </li>
         </ul>
       </div>
     </div>
+
+
   </div>
 </div>
 <h3 *ngIf="!user" class="center">Aucun user à éditer...</h3>
