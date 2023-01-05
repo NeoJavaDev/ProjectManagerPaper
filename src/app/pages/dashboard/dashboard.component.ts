@@ -292,6 +292,8 @@ export class DashboardComponent implements OnInit {
         },
       });
 
+      // CHART BAR
+
       this.canvas = document.getElementById("chartHours");
       this.ctx = this.canvas.getContext("2d");
       this.chartProfitability = new Chart(this.ctx, {
