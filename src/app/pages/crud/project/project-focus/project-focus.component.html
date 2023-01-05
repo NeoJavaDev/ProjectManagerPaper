@@ -35,7 +35,7 @@
 
 <h3 *ngIf="!project" class="center">Aucun project à éditer...</h3>
 
-<div class="row">
+<div class="row" *ngIf="project">
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
       <div class="card-body ">
