@@ -18,6 +18,20 @@ export class DashboardComponent implements OnInit {
   public chartOverheads;
   public chartHr;
   public chartProfitability;
+  public chartHours;
+
+  public management = 0;
+  public developer = 0;
+
+  public software = 0;
+  public hardware = 0;
+  public premises = 0;
+  public furniture = 0;
+  public sourcing = 0;
+  public distribution = 0;
+
+  public cost = 0;
+  public revenue = 0;
 
   constructor(private router: Router, private adminService: AdminService) {}
 
@@ -55,6 +69,19 @@ export class DashboardComponent implements OnInit {
         cost += project.cost;
         revenue += project.revenue;
       });
+
+      this.management = management;
+      this.developer = developer;
+
+      this.software = software;
+      this.hardware = hardware;
+      this.premises = premises;
+      this.furniture = furniture;
+      this.sourcing = sourcing;
+      this.distribution = distribution;
+
+      this.cost = cost;
+      this.revenue = revenue;
 
       // CHART OVERHEADS
       this.canvas = document.getElementById("chartOverheads");
@@ -261,6 +288,56 @@ export class DashboardComponent implements OnInit {
                 },
               },
             ],
+          },
+        },
+      });
+
+      this.canvas = document.getElementById("chartHours");
+      this.ctx = this.canvas.getContext("2d");
+      this.chartProfitability = new Chart(this.ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Software",
+            "Hardware",
+            "Premises",
+            "Furniture",
+            "Sourcing",
+            "Distribution",
+          ],
+          datasets: [
+            {
+              label: "€",
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              backgroundColor: [
+                "#49c6ff",
+                "#174d8b",
+                "#c0e6f5",
+                "#952bc7",
+                "#8a76fd",
+                "#961919d0",
+              ],
+              borderWidth: 0,
+              data: [
+                software,
+                hardware,
+                premises,
+                furniture,
+                sourcing,
+                distribution,
+              ],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          scales: {
+            yAxes: {
+              beginAtZero: true,
+            },
           },
         },
       });

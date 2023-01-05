@@ -54,7 +54,14 @@ export class ProjectFocusComponent implements OnInit {
       this.chartOverheads = new Chart(this.ctx, {
         type: "pie",
         data: {
-          labels: [1, 2, 3],
+          labels: [
+            "Software",
+            "Hardware",
+            "Premises",
+            "Furniture",
+            "Sourcing",
+            "Distribution",
+          ],
           datasets: [
             {
               label: "Cost Breakdown",
@@ -93,7 +100,7 @@ export class ProjectFocusComponent implements OnInit {
           },
 
           tooltips: {
-            enabled: false,
+            enabled: true,
           },
 
           scales: {
