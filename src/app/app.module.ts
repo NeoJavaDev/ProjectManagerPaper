@@ -33,7 +33,7 @@ registerLocaleData(localeFr);
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule,
+    FixedPluginModule
   ],
   providers: [
     {
