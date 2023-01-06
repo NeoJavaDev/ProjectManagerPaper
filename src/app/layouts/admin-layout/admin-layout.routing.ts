@@ -39,6 +39,6 @@ export const AdminLayoutRoutes: Routes = [
 
   { path: "user/edit/:id", component: UserEditComponent },
   { path: "project/edit/:id", component: ProjectEditComponent },
-  { path: "task/edit/:id", component: TaskEditComponent },
+  { path: "task/edit/:id", component: TaskEditComponent }
 
 ];

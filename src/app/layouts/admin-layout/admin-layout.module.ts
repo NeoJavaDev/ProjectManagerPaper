@@ -21,9 +21,10 @@ import { TaskListComponent } from "app/pages/crud/task/task-list/task-list.compo
 import { UserEditComponent } from "app/pages/crud/user/user-edit/user-edit.component";
 import { UserFocusComponent } from "app/pages/crud/user/user-focus/user-focus.component";
 import { UserListComponent } from "app/pages/crud/user/user-list/user-list.component";
-import { ProjectAddComponent } from "app/pages/crud/project/project-add/project-add.component";
+import { ProjectAddComponent } from '../../pages/crud/project/project-add/project-add.component';
 import { TaskAddComponent } from '../../pages/crud/task/task-add/task-add.component';
 import { UserAddComponent } from '../../pages/crud/user/user-add/user-add.component';
+
 
 @NgModule({
   imports: [
