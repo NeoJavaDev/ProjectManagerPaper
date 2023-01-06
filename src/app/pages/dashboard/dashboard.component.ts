@@ -55,6 +55,13 @@ export class DashboardComponent implements OnInit {
       let cost = 0;
       let revenue = 0;
 
+      let revenueProject0 = res[0].revenue;
+      let revenueProject1 = res[1].revenue;
+      let revenueProject2 = res[2].revenue;
+      let revenueProject3 = res[3].revenue;
+      let revenueProject4 = res[4].revenue;
+      let revenueProject5 = res[5].revenue;
+
       this.projects.forEach((project) => {
         management += project.management;
         developer += project.developer;
@@ -90,12 +97,12 @@ export class DashboardComponent implements OnInit {
         type: "bar",
         data: {
           labels: [
-            "Software",
-            "Hardware",
-            "Premises",
-            "Furniture",
-            "Sourcing",
-            "Distribution",
+            "Project1",
+            "Project2",
+            "Project3",
+            "Project4",
+            "Project5",
+            "Project6"
           ],
           datasets: [
             {
@@ -112,12 +119,12 @@ export class DashboardComponent implements OnInit {
               ],
               borderWidth: 0,
               data: [
-                software,
-                hardware,
-                premises,
-                furniture,
-                sourcing,
-                distribution,
+                revenueProject0,
+                revenueProject1,
+                revenueProject2,
+                revenueProject3,
+                revenueProject4,
+                revenueProject5
               ],
             },
           ],
