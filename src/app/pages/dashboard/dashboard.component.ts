@@ -83,6 +83,57 @@ export class DashboardComponent implements OnInit {
       this.cost = cost;
       this.revenue = revenue;
 
+      // CHART BAR
+      this.canvas = document.getElementById("chartHours");
+      this.ctx = this.canvas.getContext("2d");
+      this.chartProfitability = new Chart(this.ctx, {
+        type: "bar",
+        data: {
+          labels: [
+            "Software",
+            "Hardware",
+            "Premises",
+            "Furniture",
+            "Sourcing",
+            "Distribution",
+          ],
+          datasets: [
+            {
+              label: "€",
+              pointRadius: 0,
+              pointHoverRadius: 0,
+              backgroundColor: [
+                "#49c6ff",
+                "#174d8b",
+                "#c0e6f5",
+                "#952bc7",
+                "#8a76fd",
+                "#961919d0",
+              ],
+              borderWidth: 0,
+              data: [
+                software,
+                hardware,
+                premises,
+                furniture,
+                sourcing,
+                distribution,
+              ],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          scales: {
+            yAxes: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
       // CHART OVERHEADS
       this.canvas = document.getElementById("chartOverheads");
       this.ctx = this.canvas.getContext("2d");
@@ -288,58 +339,6 @@ export class DashboardComponent implements OnInit {
                 },
               },
             ],
-          },
-        },
-      });
-
-      // CHART BAR
-
-      this.canvas = document.getElementById("chartHours");
-      this.ctx = this.canvas.getContext("2d");
-      this.chartProfitability = new Chart(this.ctx, {
-        type: "bar",
-        data: {
-          labels: [
-            "Software",
-            "Hardware",
-            "Premises",
-            "Furniture",
-            "Sourcing",
-            "Distribution",
-          ],
-          datasets: [
-            {
-              label: "€",
-              pointRadius: 0,
-              pointHoverRadius: 0,
-              backgroundColor: [
-                "#49c6ff",
-                "#174d8b",
-                "#c0e6f5",
-                "#952bc7",
-                "#8a76fd",
-                "#961919d0",
-              ],
-              borderWidth: 0,
-              data: [
-                software,
-                hardware,
-                premises,
-                furniture,
-                sourcing,
-                distribution,
-              ],
-            },
-          ],
-        },
-        options: {
-          legend: {
-            display: false,
-          },
-          scales: {
-            yAxes: {
-              beginAtZero: true,
-            },
           },
         },
       });
