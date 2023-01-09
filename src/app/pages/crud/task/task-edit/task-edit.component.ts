@@ -26,8 +26,14 @@ export class TaskEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Submit form !')
-    this.router.navigate(['/task', this.task.id]);
-  }
+    console.log('Submit form !');
+    this.adminService.updateTask(this.task)
+      .subscribe((task) => {
+        if(task) {
+          this.router.navigate(['/task', this.task.id]);
+        }
+      });
 
+
+  }
 }

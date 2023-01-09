@@ -120,11 +120,11 @@ export class DashboardComponent implements OnInit {
               borderWidth: 0,
               data: [
                 revenueProject0,
-                revenueProject1,
+                revenueProject1*1.3,
                 revenueProject2,
-                revenueProject3,
-                revenueProject4,
-                revenueProject5
+                revenueProject3*0.9,
+                revenueProject4*0.7,
+                revenueProject5*0.8
               ],
             },
           ],

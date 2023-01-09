@@ -17,6 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
+import { FormsModule } from "@angular/forms";
 
 registerLocaleData(localeFr);
 
@@ -27,8 +28,9 @@ registerLocaleData(localeFr);
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes, {
-      useHash: false,
+      useHash: false
     }),
+    FormsModule,
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
@@ -38,9 +40,9 @@ registerLocaleData(localeFr);
   providers: [
     {
       provide: LOCALE_ID,
-      useValue: "fr-FR",
-    },
+      useValue: "fr-FR"
+    }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

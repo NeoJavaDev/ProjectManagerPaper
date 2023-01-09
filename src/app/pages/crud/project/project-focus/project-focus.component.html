@@ -4,6 +4,24 @@
     <div class="card card-stats">
       <div class="card-body ">
         <div class="row">
+          <div class="col-8 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Project name</p>
+              <p class="card-title">{{ project.name }}
+              <p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="project">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">Start Date</p>
@@ -231,8 +249,8 @@
 
       <div class="card-footer ">
         <div class="legend">
-          <i class="fa fa-circle icon-background2"></i> Revenue
-          <i class="fa fa-circle icon-background1"></i> Cost
+          <i class="fa fa-circle icon-background2"></i> Cost
+          <i class="fa fa-circle icon-background1"></i> Revenue
         </div>
         <hr>
         <div class="stats">

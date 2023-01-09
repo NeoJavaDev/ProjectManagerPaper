@@ -1,19 +1,19 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Project } from 'app/pages/crud/project/model/project';
-import { Task } from 'app/pages/crud/task/model/task';
-import { User } from 'app/pages/crud/user/model/user';
-import { environment } from 'environments/environment';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Project } from "app/pages/crud/project/model/project";
+import { Task } from "app/pages/crud/task/model/task";
+import { User } from "app/pages/crud/user/model/user";
+import { environment } from "environments/environment";
+import { response } from "express";
+import { catchError, Observable, of, tap } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AdminService {
-
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   //USER
   public getUsers(): Observable<User[]> {
@@ -28,14 +28,16 @@ export class AdminService {
     return this.httpClient.post<User>(`${this.apiServerUrl}/user/add`, user);
   }
 
-  public updateUser(user: User): Observable<User> {
-    return this.httpClient.put<User>(`${this.apiServerUrl}/user/${user.id}`, user);
+  public updateUserById(user: User): Observable<User> {
+    return this.httpClient.put<User>(
+      `${this.apiServerUrl}/user/update/${user.id}`,
+      user
+    );
   }
 
   public deleteUserById(userId: number): Observable<void> {
-    return this.httpClient.get<void>(`${this.apiServerUrl}/user/${userId}`);
+    return this.httpClient.delete<void>(`${this.apiServerUrl}/user/${userId}`);
   }
-
 
   //PROJECT
   public getProjects(): Observable<Project[]> {
@@ -43,7 +45,9 @@ export class AdminService {
   }
 
   public getProjectById(projectId: number): Observable<Project> {
-    return this.httpClient.get<Project>(`${this.apiServerUrl}/project/${projectId}`);
+    return this.httpClient.get<Project>(
+      `${this.apiServerUrl}/project/${projectId}`
+    );
   }
 
   public addProject(project: Project): Observable<Project> {
@@ -55,13 +59,13 @@ export class AdminService {
 
   public updateProject(project: Project): Observable<Project> {
     return this.httpClient.put<Project>(
-      `${this.apiServerUrl}/project/${project.id}`,
+      `${this.apiServerUrl}/project/update/${project.id}`,
       project
     );
   }
 
   public deleteProjectById(projectId: number): Observable<void> {
-    return this.httpClient.get<void>(
+    return this.httpClient.delete<void>(
       `${this.apiServerUrl}/project/${projectId}`
     );
   }
@@ -79,11 +83,26 @@ export class AdminService {
     return this.httpClient.post<Task>(`${this.apiServerUrl}/task/add`, task);
   }
 
-  public updateTaskById(task: Task): Observable<Task> {
-    return this.httpClient.put<Task>(`${this.apiServerUrl}/task`, task);
+  public updateTask(task: Task): Observable<unknown> {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'applicaiton/json'})
+    }
+
+    return this.httpClient.put(`${this.apiServerUrl}/task/update`, httpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
+    );
   }
 
   public deleteTaskById(taskId: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.apiServerUrl}/task/${taskId}`);
+  }
+
+  private log(response: any) {
+    console.table(response);
+  }
+  private handleError(error: Error, errorValue: any) {
+    console.error(error);
+    return of(errorValue);
   }
 }

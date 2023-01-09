@@ -31,7 +31,7 @@ import { UserAddComponent } from '../../pages/crud/user/user-add/user-add.compon
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    NgbModule,
+    NgbModule
   ],
   declarations: [
     DashboardComponent,

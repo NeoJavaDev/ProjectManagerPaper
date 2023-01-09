@@ -15,13 +15,14 @@
               <div class="form-group">
                 <label for="name">Name</label>
 
-                <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9àéèç ]{1,100}$"
+                <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9àéèçù ]{1,100}$"
                   [(ngModel)]="task.name" name="name" #name="ngModel">
 
                 <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
                   Le nom de la tache est requis (1-25)
                 </div>
               </div>
+
 
               <!-- HR COSTS BREAKDOWN -->
 
@@ -103,6 +104,8 @@
                 <div [hidden]="distributionCosts.valid || distributionCosts.pristine" class="card-panel red accent-1">
                   Entrez un nombre entre 0 et 10MM
                 </div>
+
+
               </div>
             </div>
           </div>
