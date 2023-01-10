@@ -1,39 +1,74 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AdminService } from 'app/layouts/admin-layout/admin.service';
-import { Task } from '../model/task';
+import { HttpErrorResponse } from "@angular/common/http";
+import { Component, Input, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AdminService } from "app/layouts/admin-layout/admin.service";
+import { Project } from "../../project/model/project";
+import { Task } from "../model/task";
 
 @Component({
-  selector: 'app-task-edit',
-  templateUrl: './task-edit.component.html',
-  styles: [
-  ]
+  selector: "app-task-edit",
+  templateUrl: "./task-edit.component.html",
+  styles: [],
 })
 export class TaskEditComponent implements OnInit {
+  @Input() task: Task | any;
+  tasks: Task[] | any;
+  project: Project | any;
+  projects: Project[] | any;
 
-  @Input() task: Task|any;
-  tasks: Task[]|any;
-
-  constructor(private adminService: AdminService, private router: Router,private route: ActivatedRoute) { }
+  constructor(
+    private adminService: AdminService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.tasks = this.adminService.getTasks();
-    const taskId: string|null = this.route.snapshot.paramMap.get('id');
-    if(taskId) {
-      this.adminService.getTaskById(+taskId)
-      .subscribe(task => this.task = task);
+    this.getProjects();
+
+    const taskId: string | null = this.route.snapshot.paramMap.get("id");
+    if (taskId) {
+      this.adminService
+        .getTaskById(+taskId)
+        .subscribe((task) => (this.task = task));
     }
   }
 
-  onSubmit() {
-    console.log('Submit form !');
+  public hasProject(project: Project): boolean {
+    if(this.task.project.id == project.id) {
+      return true;
+    }
+  }
+
+  public selectProject($event: Event, project: Project) {
+    const isChecked: boolean = ($event.target as HTMLInputElement).checked;
+
+    if(isChecked) {
+      this.task.project = project;
+    } else {
+      const i = this.task.project.indexOf(project);
+      this.task.project.splice(i, 1)
+    }
+  }
+
+  public onSubmit() {
+    console.log("Submit form !");
     this.adminService.updateTask(this.task)
-      .subscribe((task) => {
+      .subscribe((task: Task) => {
         if(task) {
-          this.router.navigate(['/task', this.task.id]);
+          this.router.navigate(['/task', task.id]);
         }
       });
+    this.router.navigate(['/task', this.task.id]);
+  }
 
-
+  public getProjects(): void {
+    this.adminService.getProjects().subscribe(
+      (response: Project[]) => {
+        this.projects = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
   }
 }

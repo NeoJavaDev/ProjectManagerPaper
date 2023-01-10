@@ -105,6 +105,22 @@
                   Entrez un nombre entre 0 et 10MM
                 </div>
 
+                <!-- Project -->
+
+                <form class="form-group">
+                  <label for="taskProject">Project</label>
+                  <p *ngFor="let project of projects | ArrayFix">
+                    <label>
+                      <input type="checkbox" class="filled-in" id="{{ project.id }}" [value]="project.name"
+                        [checked]="hasProject(project)" (change)="selectProject($event, project)" />
+                      <span [attr.for]="project">
+                        {{ project.name | uppercase }}
+                      </span>
+                    </label>
+                  </p>
+                </form>
+
+
 
               </div>
             </div>
@@ -114,8 +130,7 @@
         <!-- SUBMIT BUTTON -->
         <div class="divider"></div>
         <div class="section center">
-          <button type="submit" class="waves-effect waves-light btn"
-            [disabled]="!taskForm.form.valid">Valider</button>
+          <button type="submit" class="waves-effect waves-light btn" [disabled]="!taskForm.form.valid">Valider</button>
         </div>
         <h3 *ngIf="!task" class="center">Aucun projet à éditer...</h3>
       </form>

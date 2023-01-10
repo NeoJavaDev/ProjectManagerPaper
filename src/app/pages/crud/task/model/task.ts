@@ -15,5 +15,6 @@ export interface Task {
   cost: number;
   revenue: number;
   profitability: boolean;
+  project_id_fk:number,
   project: Project;
 }

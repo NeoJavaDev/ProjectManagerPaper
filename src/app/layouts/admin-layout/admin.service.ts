@@ -85,10 +85,10 @@ export class AdminService {
 
   public updateTask(task: Task): Observable<unknown> {
     const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'applicaiton/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
 
-    return this.httpClient.put(`${this.apiServerUrl}/task/update`, httpOptions).pipe(
+    return this.httpClient.put(`${this.apiServerUrl}/task/update`,task, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );

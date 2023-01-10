@@ -24,6 +24,7 @@ import { UserListComponent } from "app/pages/crud/user/user-list/user-list.compo
 import { ProjectAddComponent } from '../../pages/crud/project/project-add/project-add.component';
 import { TaskAddComponent } from '../../pages/crud/task/task-add/task-add.component';
 import { UserAddComponent } from '../../pages/crud/user/user-add/user-add.component';
+import { ArrayFixPipe } from '../../shared/pipe/array-fix-pipe.pipe';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { UserAddComponent } from '../../pages/crud/user/user-add/user-add.compon
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    NgbModule
+    NgbModule,
   ],
   declarations: [
     DashboardComponent,
@@ -50,7 +51,8 @@ import { UserAddComponent } from '../../pages/crud/user/user-add/user-add.compon
     TaskFocusComponent,
     ProjectAddComponent,
     TaskAddComponent,
-    UserAddComponent
+    UserAddComponent,
+    ArrayFixPipe
   ],
 })
 export class AdminLayoutModule {}
