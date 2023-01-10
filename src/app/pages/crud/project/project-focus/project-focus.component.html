@@ -1,32 +1,16 @@
 <a href="project-manager/projects">Go Back</a>
-<div class="row" *ngIf="project">
-  <div class="col-lg-6 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-8 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Project name</p>
-              <p class="card-title">{{ project.name }}
-              <p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row" *ngIf="project">
-  <div class="col-lg-6 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Start Date</p>
-              <p class="card-title">{{ project.startDate | date }}
-              <p>
+<div *ngIf="project">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-8 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Project name</p>
+                <p class="card-title">{{ project.name }}
+                <p>
+              </div>
             </div>
           </div>
         </div>
@@ -34,227 +18,245 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">End Date</p>
-              <p class="card-title">{{ project.endDate | date }}
-              <p>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Start Date</p>
+                <p class="card-title">{{ project.startDate | date }}
+                <p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">End Date</p>
+                <p class="card-title">{{ project.endDate | date }}
+                <p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<h3 *ngIf="!project" class="center">Aucun project à éditer...</h3>
+  <h3 *ngIf="!project" class="center">Aucun project à éditer...</h3>
 
-<div class="row" *ngIf="project">
-  <div class="col-lg-3 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-badge text-warning"></i>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-badge text-warning"></i>
+              </div>
             </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Management</p>
-              <p class="card-title"> {{ project.management | currency:'€' :true:'1.0' }}
-              <p>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Management</p>
+                <p class="card-title"> {{ project.management | currency:'€' :true:'1.0' }}
+                <p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-refresh"></i> Update Now
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="fa fa-refresh"></i> Update Now
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-vector text-success"></i>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-vector text-success"></i>
+              </div>
             </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Developer</p>
-              <p class="card-title">{{ project.developer | currency:'€' :true:'1.0' }}
-              <p>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Developer</p>
+                <p class="card-title">{{ project.developer | currency:'€' :true:'1.0' }}
+                <p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-calendar-o"></i> Update Now
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="fa fa-calendar-o"></i> Update Now
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-bank text-danger"></i>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-bank text-danger"></i>
+              </div>
             </div>
-          </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Revenue</p>
-              <p class="card-title">{{ project.revenue | currency:'€' :true:'1.0' }}
-              <p>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Revenue</p>
+                <p class="card-title">{{ project.revenue | currency:'€' :true:'1.0' }}
+                <p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-clock-o"></i> Update Now
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="fa fa-clock-o"></i> Update Now
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-4">
-            <div class="icon-big text-center icon-warning">
-              <i class="nc-icon nc-money-coins text-primary"></i>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-money-coins text-primary"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Cost</p>
+                <p class="card-title">{{ project.cost | currency:'€' :true:'1.0' }}
+                <p>
+              </div>
             </div>
           </div>
-          <div class="col-7 col-md-8">
-            <div class="numbers">
-              <p class="card-category">Cost</p>
-              <p class="card-title">{{ project.cost | currency:'€' :true:'1.0' }}
-              <p>
-            </div>
+        </div>
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="fa fa-refresh"></i> Update now
           </div>
-        </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-refresh"></i> Update now
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Cost Breakdown</h5>
-        <p class="card-category">Project Review</p>
-      </div>
-      <div class="card-body ">
-        <canvas id=chartHours width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <div class="stats">
-          <i class="fa fa-history"></i> Update
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Project Overheads</h5>
-        <p class="card-category">Cost Breakdown</p>
-      </div>
-
-      <div class="card-body ">
-        <canvas id="chartOverheads"></canvas>
-      </div>
-
-      <div class="card-footer ">
-        <div class="legend">
-          <p><i class="fa fa-circle icon-background1"></i> Software
-            <i class="fa fa-circle icon-background2"></i> Hardware
-            <i class="fa fa-circle icon-background3"></i> Premises
-            <br><i class="fa fa-circle icon-background4"></i> Furniture
-            <i class="fa fa-circle icon-background5"></i> Sourcing
-            <i class="fa fa-circle icon-background6"></i> Distribution
-          </p>
-        </div>
-        <hr>
-        <div class="stats">
-          <i class="fa fa-calendar"></i> Total cost : {{ project.software + project.hardware + project.premises +
-          project.furniture + project.sourcing + project.distribution | currency:'€' :true:'1.0'}}
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Cost of labor</h5>
-        <p class="card-category">Cost Breakdown</p>
-      </div>
-
-      <div class="card-body ">
-        <canvas id="chartHr"></canvas>
-      </div>
-
-      <div class="card-footer ">
-        <div class="legend">
-          <i class="fa fa-circle icon-background2"></i> Management
-          <i class="fa fa-circle icon-background1"></i> Developer
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header ">
+          <h5 class="card-title">Cost Breakdown</h5>
+          <p class="card-category">Project Review</p>
         </div>
-        <hr>
-        <div class="stats">
-          <i class="fa fa-calendar"></i> Total cost : {{project.management + project.developer | currency:'€'
-          :true:'1.0'}}
+        <div class="card-body ">
+          <canvas id=chartHours width="400" height="100"></canvas>
+        </div>
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="fa fa-history"></i> Update
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div class="card ">
-      <div class="card-header ">
-        <h5 class="card-title">Profitability</h5>
-        <p class="card-category">Cost Breakdown</p>
-      </div>
-
-      <div class="card-body ">
-        <canvas id="chartProfitability"></canvas>
-      </div>
-
-      <div class="card-footer ">
-        <div class="legend">
-          <i class="fa fa-circle icon-background2"></i> Cost
-          <i class="fa fa-circle icon-background1"></i> Revenue
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card ">
+        <div class="card-header ">
+          <h5 class="card-title">Project Overheads</h5>
+          <p class="card-category">Cost Breakdown</p>
         </div>
-        <hr>
-        <div class="stats">
-          <i class="fa fa-calendar"></i>Profit/Loss : {{project.revenue - project.cost | currency:'€' :true:'1.0' }}
+
+        <div class="card-body ">
+          <canvas id="chartOverheads"></canvas>
+        </div>
+
+        <div class="card-footer ">
+          <div class="legend">
+            <p><i class="fa fa-circle icon-background1"></i> Software
+              <i class="fa fa-circle icon-background2"></i> Hardware
+              <i class="fa fa-circle icon-background3"></i> Premises
+              <br><i class="fa fa-circle icon-background4"></i> Furniture
+              <i class="fa fa-circle icon-background5"></i> Sourcing
+              <i class="fa fa-circle icon-background6"></i> Distribution
+            </p>
+          </div>
+          <hr>
+          <div class="stats">
+            <i class="fa fa-calendar"></i> Total cost : {{ project.software + project.hardware + project.premises +
+            project.furniture + project.sourcing + project.distribution | currency:'€' :true:'1.0'}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card ">
+        <div class="card-header ">
+          <h5 class="card-title">Cost of labor</h5>
+          <p class="card-category">Cost Breakdown</p>
+        </div>
+
+        <div class="card-body ">
+          <canvas id="chartHr"></canvas>
+        </div>
+
+        <div class="card-footer ">
+          <div class="legend">
+            <i class="fa fa-circle icon-background2"></i> Management
+            <i class="fa fa-circle icon-background1"></i> Developer
+          </div>
+          <hr>
+          <div class="stats">
+            <i class="fa fa-calendar"></i> Total cost : {{project.management + project.developer | currency:'€'
+            :true:'1.0'}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card ">
+        <div class="card-header ">
+          <h5 class="card-title">Profitability</h5>
+          <p class="card-category">Cost Breakdown</p>
+        </div>
+
+        <div class="card-body ">
+          <canvas id="chartProfitability"></canvas>
+        </div>
+
+        <div class="card-footer ">
+          <div class="legend">
+            <i class="fa fa-circle icon-background2"></i> Cost
+            <i class="fa fa-circle icon-background1"></i> Revenue
+          </div>
+          <hr>
+          <div class="stats">
+            <i class="fa fa-calendar"></i>Profit/Loss : {{project.revenue - project.cost | currency:'€' :true:'1.0' }}
+          </div>
         </div>
       </div>
     </div>

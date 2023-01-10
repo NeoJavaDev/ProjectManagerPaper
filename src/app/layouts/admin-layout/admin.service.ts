@@ -28,10 +28,14 @@ export class AdminService {
     return this.httpClient.post<User>(`${this.apiServerUrl}/user/add`, user);
   }
 
-  public updateUserById(user: User): Observable<User> {
-    return this.httpClient.put<User>(
-      `${this.apiServerUrl}/user/update/${user.id}`,
-      user
+  public updateUser(user: User): Observable<unknown> {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+
+    return this.httpClient.put(`${this.apiServerUrl}/task/update`,user, httpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
     );
   }
 
@@ -57,10 +61,14 @@ export class AdminService {
     );
   }
 
-  public updateProject(project: Project): Observable<Project> {
-    return this.httpClient.put<Project>(
-      `${this.apiServerUrl}/project/update/${project.id}`,
-      project
+  public updateProject(project: Project): Observable<unknown> {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+
+    return this.httpClient.put(`${this.apiServerUrl}/task/update`,project, httpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
     );
   }
 

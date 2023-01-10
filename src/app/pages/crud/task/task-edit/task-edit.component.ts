@@ -24,7 +24,6 @@ export class TaskEditComponent implements OnInit {
 
   ngOnInit() {
     this.getProjects();
-
     const taskId: string | null = this.route.snapshot.paramMap.get("id");
     if (taskId) {
       this.adminService
@@ -50,6 +49,17 @@ export class TaskEditComponent implements OnInit {
     }
   }
 
+  public getProjects(): void {
+    this.adminService.getProjects().subscribe(
+      (response: Project[]) => {
+        this.projects = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
+
   public onSubmit() {
     console.log("Submit form !");
     this.adminService.updateTask(this.task)
@@ -61,14 +71,5 @@ export class TaskEditComponent implements OnInit {
     this.router.navigate(['/task', this.task.id]);
   }
 
-  public getProjects(): void {
-    this.adminService.getProjects().subscribe(
-      (response: Project[]) => {
-        this.projects = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
-  }
+
 }
