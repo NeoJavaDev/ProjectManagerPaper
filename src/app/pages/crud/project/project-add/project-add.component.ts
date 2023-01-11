@@ -1,0 +1,17 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-project-add',
+  templateUrl: './project-add.component.html',
+  styleUrls: [
+    
+  ]
+})
+export class ProjectAddComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
