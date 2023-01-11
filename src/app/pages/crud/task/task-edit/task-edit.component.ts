@@ -15,6 +15,7 @@ export class TaskEditComponent implements OnInit {
   tasks: Task[] | any;
   project: Project | any;
   projects: Project[] | any;
+  isAddForm: boolean;
 
   constructor(
     private adminService: AdminService,
@@ -23,6 +24,7 @@ export class TaskEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isAddForm = this.router.url.includes("add");
     this.getProjects();
     const taskId: string | null = this.route.snapshot.paramMap.get("id");
     if (taskId) {
@@ -33,7 +35,7 @@ export class TaskEditComponent implements OnInit {
   }
 
   public hasProject(project: Project): boolean {
-    if(this.task.project.id == project.id) {
+    if (this.task.project.id == project.id) {
       return true;
     }
   }
@@ -41,11 +43,11 @@ export class TaskEditComponent implements OnInit {
   public selectProject($event: Event, project: Project) {
     const isChecked: boolean = ($event.target as HTMLInputElement).checked;
 
-    if(isChecked) {
+    if (isChecked) {
       this.task.project = project;
     } else {
       const i = this.task.project.indexOf(project);
-      this.task.project.splice(i, 1)
+      this.task.project.splice(i, 1);
     }
   }
 
@@ -57,19 +59,20 @@ export class TaskEditComponent implements OnInit {
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
-    )
+    );
   }
 
   public onSubmit() {
     console.log("Submit form !");
-    this.adminService.updateTask(this.task)
-      .subscribe((task: Task) => {
-        if(task) {
-          this.router.navigate(['/task', task.id]);
-        }
-      });
-    this.router.navigate(['/task', this.task.id]);
+
+    if (this.isAddForm) {
+      this.adminService
+        .addTask(this.task)
+        .subscribe((task: Task) => this.router.navigate(["/task", task.id]));
+    } else {
+      this.adminService
+        .updateTask(this.task)
+        .subscribe(() => this.router.navigate(["/task", this.task.id]));
+    }
   }
-
-
 }

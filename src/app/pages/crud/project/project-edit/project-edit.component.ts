@@ -17,6 +17,7 @@ export class ProjectEditComponent implements OnInit {
   tasks: Task[] | any;
   projectTasks: Task[] | any;
   user: User | any;
+  isAddForm: boolean;
 
   constructor(
     private adminService: AdminService,
@@ -25,6 +26,7 @@ export class ProjectEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isAddForm = this.router.url.includes("add");
     this.getTasks();
     const projectId: string | null = this.route.snapshot.paramMap.get("id");
     if (projectId) {
@@ -71,13 +73,14 @@ export class ProjectEditComponent implements OnInit {
 
   onSubmit() {
     console.log("Submit form !");
-    this.adminService
-      .updateProject(this.project)
-      .subscribe((project: Project) => {
-        if(project) {
-          this.router.navigate(["/project", project.id]);
-        }
-        this.router.navigate(['/user', project.id]);
-      });
+    if (this.isAddForm) {
+      this.adminService
+        .addProject(this.project)
+        .subscribe((project: Project) => this.router.navigate(["/project", project.id]));
+    } else {
+      this.adminService
+        .updateProject(this.project)
+        .subscribe(() => this.router.navigate(["/project", this.project.id]));
+    }
   }
 }

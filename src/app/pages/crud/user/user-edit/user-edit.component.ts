@@ -12,6 +12,7 @@ import { User } from '../model/user';
 export class UserEditComponent implements OnInit {
 
   @Input() user: User | any;
+  isAddForm: boolean;
 
   constructor(
     private adminService: AdminService,
@@ -20,6 +21,7 @@ export class UserEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isAddForm = this.router.url.includes("add");
     const userId: string | null = this.route.snapshot.paramMap.get("id");
     if (userId) {
       this.adminService
@@ -30,13 +32,15 @@ export class UserEditComponent implements OnInit {
 
   public onSubmit() {
     console.log("Submit form !");
-    this.adminService.updateUser(this.user)
-      .subscribe((user: User) => {
-        if(user) {
-          this.router.navigate(['/user', user.id]);
-        }
-      });
-      this.router.navigate(['/user', this.user.id]);
+    if (this.isAddForm) {
+      this.adminService
+        .addUser(this.user)
+        .subscribe((user: User) => this.router.navigate(["/user", user.id]));
+    } else {
+      this.adminService
+        .updateUser(this.user)
+        .subscribe(() => this.router.navigate(["/user", this.user.id]));
+    }
   }
 
 }
