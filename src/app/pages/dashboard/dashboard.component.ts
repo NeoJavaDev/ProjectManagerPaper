@@ -135,8 +135,11 @@ export class DashboardComponent implements OnInit {
           },
           scales: {
             yAxes: {
-              beginAtZero: true,
+              beginAtZero: false,
             },
+            xAxes: {
+              beginAtZero: true
+            }
           },
         },
       });

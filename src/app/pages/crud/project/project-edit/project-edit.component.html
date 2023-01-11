@@ -2,7 +2,7 @@
 <div class="col-md-8">
   <div class="card card-user">
     <div class="card-header">
-      <h5 class="card-title">Edit Profile</h5>
+      <h5 class="card-title">Edit Project</h5>
     </div>
     <div class="card-body">
       <form *ngIf="project" (ngSubmit)="onSubmit()" #projectForm="ngForm">
@@ -12,14 +12,25 @@
 
               <!-- NAME -->
 
-              <div class="form-group">
-                <label for="name">Name</label>
+              <div class="row">
+                <div class="col-md-5 pr-1">
+                  <div class="form-group">
+                    <label>Id (disabled)</label>
+                    <input type="text" class="form-control" disabled="" placeholder="{{project.id}}" value="">
+                  </div>
+                </div>
 
-                <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9àéèç ]{1,100}$"
-                  [(ngModel)]="project.name" name="name" #name="ngModel">
+                <div class="col-md-5 pr-1">
+                  <div class="form-group">
+                    <label for="name">Name</label>
 
-                <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
-                  Le nom du projet est requis (1-25)
+                    <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9àéèçù ]{1,100}$"
+                      [(ngModel)]="project.name" name="name" #name="ngModel">
+
+                    <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                      Le nom de la tache est requis (1-25)
+                    </div>
+                  </div>
                 </div>
               </div>
 

@@ -1,6 +1,6 @@
 import { Project } from "../../project/model/project";
 
-export interface Task {
+export class Task {
   id: number
   name: string;
   logo: string;
@@ -16,4 +16,29 @@ export interface Task {
   revenue: number;
   profitability: boolean;
   project: Project;
+
+  constructor(
+    name: string = 'Enter a name',
+    logo: string = 'Enter a logo',
+    management: number = 0,
+    developer: number = 0,
+    software: number = 0,
+    hardware: number = 0,
+    premises: number = 0,
+    furniture: number = 0,
+    sourcing: number = 0,
+    distribution: number = 0
+  ) {
+    this.name = name;
+    this.logo = logo;
+    this.management = management;
+    this.developer = developer;
+    this.software = software;
+    this.hardware = hardware;
+    this.premises = premises;
+    this.furniture = furniture;
+    this.sourcing = sourcing;
+    this.distribution = distribution;
+
+  }
 }

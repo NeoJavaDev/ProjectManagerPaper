@@ -77,7 +77,7 @@ export class ProjectEditComponent implements OnInit {
         if(project) {
           this.router.navigate(["/project", project.id]);
         }
+        this.router.navigate(['/user', project.id]);
       });
-    this.router.navigate(["/project", this.project.id]);
   }
 }

@@ -5,83 +5,99 @@
       <h5 class="card-title">Edit Profile</h5>
     </div>
     <div class="card-body">
-      <form>
+      <form *ngIf="user" (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <h2> {{ user.name }} </h2>
         <div class="row">
+
+
+
           <div class="col-md-5 pr-1">
             <div class="form-group">
-              <label>Company (disabled)</label>
-              <input type="text" class="form-control" disabled="" placeholder="Company" value="Davidson Aquitaine">
+              <label>Id (disabled)</label>
+              <input type="text" class="form-control" disabled="" placeholder="{{user.id}}" >
+
             </div>
           </div>
+
           <div class="col-md-3 px-1">
             <div class="form-group">
-              <label>Username</label>
-              <input type="text" class="form-control" placeholder="Username" value="Username">
+              <label>Surname</label>
+              <input type="text" class="form-control" placeholder="{{user.surname}}" required pattern="^[a-zA-Z0-9àéèçù]{1,50}$"
+              [(ngModel)]="user.surname" name="surname" #name="ngModel">
+
+              <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                The username is required (1-25)
+              </div>
+
             </div>
           </div>
+
           <div class="col-md-4 pl-1">
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" placeholder="Email">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="email" class="form-control" placeholder="{{username}}" required pattern="^[a-zA-Z0-9àéèçù]{1,50}$"
+              [(ngModel)]="user.name" name="name" #name="ngModel">
+              <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                The name is required (1-25)
+              </div>
             </div>
           </div>
+
         </div>
+
+
         <div class="row">
+
           <div class="col-md-6 pr-1">
+
             <div class="form-group">
-              <label>First Name</label>
-              <input type="text" class="form-control" placeholder="Company" value="First Name">
+              <label>Username</label>
+              <input type="text" class="form-control" placeholder="{{user.username}}" required pattern="^[a-zA-Z0-9àéèçù]{1,50}$"
+              [(ngModel)]="user.username" name="username" #name="ngModel">
+              <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                The username is required (1-25)
+              </div>
             </div>
+
           </div>
+
           <div class="col-md-6 pl-1">
+
             <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" class="form-control" placeholder="Last Name" value="Last Name">
+              <label>Email</label>
+              <input type="text" class="form-control" placeholder="{{user.email}}" required pattern="^[a-zA-Z0-9àéèçù@.]{1,50}$"
+              [(ngModel)]="user.email" name="email" #name="ngModel">
+              <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                The email is required (1-25)
+              </div>
             </div>
+
           </div>
+
         </div>
+
         <div class="row">
+
           <div class="col-md-12">
             <div class="form-group">
-              <label>Address</label>
-              <input type="text" class="form-control" placeholder="Home Address" value="Adress">
+              <label>Nationality</label>
+              <input type="text" class="form-control" placeholder="{{user.nationality}}" required pattern="^[a-zA-Z0-9àéèçù]{1,50}$"
+              [(ngModel)]="user.nationality" name="nationality" #name="ngModel">
+              <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                The nationality is required (1-25)
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4 pr-1">
-            <div class="form-group">
-              <label>City</label>
-              <input type="text" class="form-control" placeholder="City" value="City">
-            </div>
-          </div>
-          <div class="col-md-4 px-1">
-            <div class="form-group">
-              <label>Country</label>
-              <input type="text" class="form-control" placeholder="Country" value="Country">
-            </div>
-          </div>
-          <div class="col-md-4 pl-1">
-            <div class="form-group">
-              <label>Postal Code</label>
-              <input type="number" class="form-control" placeholder="ZIP Code">
-            </div>
-          </div>
+
+        <div class="divider"></div>
+        <div class="section center">
+          <button type="submit" class="waves-effect waves-light btn" [disabled]="!userForm.form.valid">Valider</button>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label>About Me</label>
-              <textarea class="form-control textarea">Textarea</textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="update ml-auto mr-auto">
-            <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
-          </div>
-        </div>
+
+        <h3 *ngIf="!user" class="center">No User to edit...</h3>
       </form>
+
     </div>
   </div>
 </div>
