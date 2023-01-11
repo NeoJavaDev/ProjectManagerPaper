@@ -33,7 +33,7 @@ export class AdminService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
 
-    return this.httpClient.put(`${this.apiServerUrl}/task/update`,user, httpOptions).pipe(
+    return this.httpClient.put(`${this.apiServerUrl}/user/update`,user, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
@@ -66,7 +66,7 @@ export class AdminService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
 
-    return this.httpClient.put(`${this.apiServerUrl}/task/update`,project, httpOptions).pipe(
+    return this.httpClient.put(`${this.apiServerUrl}/project/update`,project, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );

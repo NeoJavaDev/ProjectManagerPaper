@@ -15,6 +15,7 @@ export class ProjectEditComponent implements OnInit {
   @Input() project: Project | any;
   projects: Project[] | any;
   tasks: Task[] | any;
+  projectTasks: Task[] | any;
   user: User | any;
 
   constructor(
@@ -29,18 +30,21 @@ export class ProjectEditComponent implements OnInit {
     if (projectId) {
       this.adminService
         .getProjectById(+projectId)
-        .subscribe((project) => (this.project = project));
-      console.log(this.project);
+        .subscribe((project) => (this.project = project, this.projectTasks = this.project.tasks));
     }
   }
 
-  public hasTask(tasks: Task[]): boolean {
-    for(let task of tasks) {
-      let i = 0;
-      if(this.project.tasks.includes(task)) {
+  public hasTask(task: Task, i: number): boolean {
+
+    for (let project of this.projectTasks) {
+      if(project.id == task.id) {
+        task.project = project;
         return true;
       }
     }
+
+
+
   }
 
   public selectTask($event: Event, task: Task) {
@@ -70,7 +74,7 @@ export class ProjectEditComponent implements OnInit {
     this.adminService
       .updateProject(this.project)
       .subscribe((project: Project) => {
-        if (project) {
+        if(project) {
           this.router.navigate(["/project", project.id]);
         }
       });

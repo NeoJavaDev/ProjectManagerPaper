@@ -1,3 +1,4 @@
+import { Task } from "../../task/model/task";
 import { User } from "../../user/model/user";
 
 export interface Project {
@@ -18,5 +19,5 @@ export interface Project {
   revenue: number;
   profitability: boolean;
   user: User;
-  tasks: any[];
+  tasks: Task[];
 }

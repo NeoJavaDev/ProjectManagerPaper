@@ -139,14 +139,18 @@
               </div>
             </div>
 
-            <!-- Project -->
+            <!-- Task -->
 
             <form class="form-group">
               <label for="projectTask">Task</label>
               <p *ngFor="let task of tasks | ArrayFix">
                 <label>
-                  <input type="checkbox" class="filled-in" id="{{ task.id }}" [value]="task"
-                    [checked]="hasTask(tasks)" (change)="selectTask($event, task)" />
+                  <input type="checkbox"
+                  class="filled-in"
+                  id="{{ task.id }}"
+                  [value]="task"
+                  [checked]="hasTask(task, task.id)"
+                  (change)="selectTask($event, task)" />
                   <span [attr.for]="tasks">
                     {{ task.name | uppercase }}
                   </span>

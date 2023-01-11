@@ -1,3 +1,5 @@
+import { Project } from "../../project/model/project";
+
 export interface User {
   id: number;
   surname: string;
@@ -6,5 +8,5 @@ export interface User {
   password: string;
   email: string;
   nationality: string;
-  projects: any[];
+  projects: Project[];
 }
