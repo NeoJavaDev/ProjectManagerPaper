@@ -1,4 +1,5 @@
 import { Project } from "../../project/model/project";
+import { ProjectEntity } from "../../project/model/projectEntity";
 
 export class Task {
   id: number
@@ -27,7 +28,13 @@ export class Task {
     premises: number = 0,
     furniture: number = 0,
     sourcing: number = 0,
-    distribution: number = 0
+    distribution: number = 0,
+    cost: number = management + developer + software + hardware
+                    + premises + furniture + sourcing + distribution,
+    revenue: number = 0,
+    profitability: boolean = false,
+
+
   ) {
     this.name = name;
     this.logo = logo;
@@ -39,6 +46,9 @@ export class Task {
     this.furniture = furniture;
     this.sourcing = sourcing;
     this.distribution = distribution;
+    this.cost = cost;
+    this.revenue = revenue;
+    this.profitability = profitability;
 
   }
 }
