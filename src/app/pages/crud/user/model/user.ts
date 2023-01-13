@@ -12,12 +12,12 @@ export class User {
   projects: Project[];
 
   constructor(
-    surname: string = 'Enter a surname',
-    name: string = 'Enter a name',
-    username: string = 'Enter a username',
-    password: string = 'Enter a password',
-    email: string = 'Enter an email',
-    nationality: string = 'Enter a nationality',
+    surname: string = 'surname',
+    name: string = 'name',
+    username: string = 'username',
+    password: string = 'password',
+    email: string = 'email',
+    nationality: string = 'nationality',
     project: Project = new ProjectEntity(),
     projects: Project[] = new Array(),
   ){

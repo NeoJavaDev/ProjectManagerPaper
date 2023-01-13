@@ -40,7 +40,14 @@ export class AdminService {
   }
 
   public deleteUserById(userId: number): Observable<void> {
-    return this.httpClient.delete<void>(`${this.apiServerUrl}/user/${userId}`);
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+
+    return this.httpClient.delete<void>(`${this.apiServerUrl}/user/delete/${userId}`, httpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
+    );
   }
 
   //PROJECT
@@ -73,8 +80,13 @@ export class AdminService {
   }
 
   public deleteProjectById(projectId: number): Observable<void> {
-    return this.httpClient.delete<void>(
-      `${this.apiServerUrl}/project/${projectId}`
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+
+    return this.httpClient.delete<void>(`${this.apiServerUrl}/project/delete/${projectId}`, httpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
     );
   }
 
@@ -103,7 +115,14 @@ export class AdminService {
   }
 
   public deleteTaskById(taskId: number): Observable<void> {
-    return this.httpClient.delete<void>(`${this.apiServerUrl}/task/${taskId}`);
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+
+    return this.httpClient.delete<void>(`${this.apiServerUrl}/task/delete/${taskId}`, httpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
+    );
   }
 
   private log(response: any) {

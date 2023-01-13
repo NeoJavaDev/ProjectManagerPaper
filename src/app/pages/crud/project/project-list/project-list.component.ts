@@ -32,8 +32,21 @@ export class ProjectListComponent implements OnInit {
     )
   }
 
+  goToProjectList() {
+    this.router.navigate(["/projects"]);
+  }
+
   goToProject(project: Project) {
     this.router.navigate(["/project", project.id]);
+  }
+
+  goToEditProject(project: Project) {
+    this.router.navigate(["/project/edit", project.id]);
+  }
+
+  deleteProject(project: Project) {
+    this.adminService.deleteProjectById(project.id)
+      .subscribe(() => this.goToProjectList());
   }
 
 }

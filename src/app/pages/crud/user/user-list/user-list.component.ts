@@ -30,8 +30,21 @@ export class UserListComponent implements OnInit {
     );
   }
 
+  goToUserList() {
+    this.router.navigate(["/users"]);
+  }
+
   goToUser(user: User) {
     this.router.navigate(["/user", user.id]);
+  }
+
+  goToEditUser(user: User) {
+    this.router.navigate(["/user/edit", user.id]);
+  }
+
+  deleteUser(user: User) {
+    this.adminService.deleteUserById(user.id)
+      .subscribe(() => this.goToUserList());
   }
 
 }

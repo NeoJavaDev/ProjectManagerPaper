@@ -31,12 +31,21 @@ export class TaskListComponent implements OnInit {
     )
   }
 
+  goToTaksList() {
+    this.router.navigate(["/tasks"]);
+  }
+
   goToTask(task: Task) {
     this.router.navigate(["/task", task.id]);
   }
 
-  deleteTask(taskId: number) {
-    this.adminService.deleteTaskById(taskId);
+  goToEditTask(task: Task) {
+    this.router.navigate(["/task/edit", task.id]);
+  }
+
+  deleteTask(task: Task) {
+    this.adminService.deleteTaskById(task.id)
+      .subscribe(() => this.goToTaksList());
   }
 
 }

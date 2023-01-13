@@ -152,22 +152,36 @@
 
             <!-- Task -->
 
-            <form class="form-group">
+            <form *ngIf="!isAddForm" class="form-group">
               <label for="projectTask">Task</label>
               <p *ngFor="let task of tasks | ArrayFix">
                 <label>
-                  <input type="checkbox"
-                  class="filled-in"
-                  id="{{ task.id }}"
-                  [value]="task"
-                  [checked]="hasTask(task, task.id)"
-                  (change)="selectTask($event, task)" />
+                  <input type="checkbox" class="filled-in" id="{{ task.id }}" [value]="task"
+                    [checked]="hasTask(task, task.id)" (change)="selectTask($event, task)" />
                   <span [attr.for]="tasks">
                     {{ task.name | uppercase }}
                   </span>
                 </label>
               </p>
             </form>
+
+
+            <div>
+              <form *ngIf="isAddForm" class="form-group">
+                <label for="projectUser">User</label>
+                <p *ngFor="let user of users | ArrayFix">
+                  <label>
+                    <input type="checkbox" class="filled-in" id="{{ user.id }}" [value]="user"
+                      (change)="selectUser($event, user)" />
+                    <span [attr.for]="users">
+                      {{ user.name | uppercase }}
+                    </span>
+                  </label>
+                </p>
+              </form>
+            </div>
+
+
 
           </div>
         </div>

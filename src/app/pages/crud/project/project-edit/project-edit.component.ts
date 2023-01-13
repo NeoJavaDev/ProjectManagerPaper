@@ -17,6 +17,7 @@ export class ProjectEditComponent implements OnInit {
   tasks: Task[] | any;
   projectTasks: Task[] | any;
   user: User | any;
+  users: User[] | any;
   isAddForm: boolean;
 
   constructor(
@@ -28,6 +29,7 @@ export class ProjectEditComponent implements OnInit {
   ngOnInit() {
     this.isAddForm = this.router.url.includes("add");
     this.getTasks();
+    this.getUsers();
     const projectId: string | null = this.route.snapshot.paramMap.get("id");
     if (projectId) {
       this.adminService
@@ -37,16 +39,12 @@ export class ProjectEditComponent implements OnInit {
   }
 
   public hasTask(task: Task, i: number): boolean {
-
     for (let project of this.projectTasks) {
       if(project.id == task.id) {
         task.project = project;
         return true;
       }
     }
-
-
-
   }
 
   public selectTask($event: Event, task: Task) {
@@ -71,12 +69,31 @@ export class ProjectEditComponent implements OnInit {
     );
   }
 
+  public getUsers(): void {
+    this.adminService.getUsers().subscribe(
+      (response: User[]) => {
+        this.users = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public selectUser($event: Event, user: User) {
+    const isChecked: boolean = ($event.target as HTMLInputElement).checked;
+
+    if (isChecked) {
+      this.project.user = user;
+    }
+  }
+
   onSubmit() {
     console.log("Submit form !");
     if (this.isAddForm) {
       this.adminService
         .addProject(this.project)
-        .subscribe((project: Project) => this.router.navigate(["/project", project.id]));
+        .subscribe(() => this.router.navigate(["/projects"]));
     } else {
       this.adminService
         .updateProject(this.project)

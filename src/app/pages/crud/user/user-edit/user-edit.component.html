@@ -88,6 +88,20 @@
               </div>
             </div>
           </div>
+
+          <form class="form-group">
+            <label for="taskProject">Project</label>
+            <p *ngFor="let project of projects | ArrayFix">
+              <label>
+                <input type="checkbox" class="filled-in" id="{{ project.id }}" [value]="project.name"
+                  [checked]="hasProject(project)" (change)="selectProject($event, project)" />
+                <span [attr.for]="project">
+                  {{ project.name | uppercase }}
+                </span>
+              </label>
+            </p>
+          </form>
+
         </div>
 
         <div class="divider"></div>

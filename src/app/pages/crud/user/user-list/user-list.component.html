@@ -49,8 +49,8 @@
                   {{ user.nationality }}
                 </td>
                 <td>
-                  <a href="project-manager/user/edit/{{user.id}}">Edit</a>
-                  <br><a>Delete</a>
+                  <a href="project-manager/user/edit/{{user.id}}" (click)="goToEditUser(user)">Edit</a>
+                  <br><a href="project-manager/users" (click)="deleteUser(user)">Delete</a>
                 </td>
               </tr>
             </tbody>

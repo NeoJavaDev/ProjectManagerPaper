@@ -68,7 +68,7 @@ export class TaskEditComponent implements OnInit {
     if (this.isAddForm) {
       this.adminService
         .addTask(this.task)
-        .subscribe((task: Task) => this.router.navigate(["/task", task.id]));
+        .subscribe(() => this.router.navigate(["/tasks"]));
     } else {
       this.adminService
         .updateTask(this.task)

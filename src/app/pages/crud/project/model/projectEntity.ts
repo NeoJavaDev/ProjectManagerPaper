@@ -40,9 +40,7 @@ export class ProjectEntity implements Project {
                     + premises + furniture + sourcing + distribution,
     revenue: number = 0,
     profitability: boolean = false,
-    user: User = new User(),
-    task: Task = undefined,
-    tasks: Task[] = undefined
+
   ){
     this.name = name;
     this.startDate = startDate;
@@ -59,8 +57,6 @@ export class ProjectEntity implements Project {
     this.cost = cost;
     this.revenue = revenue;
     this.profitability = profitability;
-    this.user = user;
-    tasks.push(task);
-    this.tasks = tasks;
+
   }
 }

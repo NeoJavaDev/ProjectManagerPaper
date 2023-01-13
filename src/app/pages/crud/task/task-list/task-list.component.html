@@ -55,8 +55,8 @@
                   {{ task.revenue - task.cost | currency:'€' :true:'1.0' }}
                 </td>
                 <td>
-                  <a href="project-manager/task/edit/{{task.id}}">Edit</a>
-                  <br><a>Delete</a>
+                  <a href="project-manager/task/edit/{{task.id}}" (click)="goToEditTask(task)">Edit</a>
+                  <br><a href="project-manager/tasks" (click)="deleteTask(task)">Delete</a>
               </td>
               </tr>
             </tbody>

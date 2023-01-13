@@ -17,8 +17,7 @@ export class TaskAddComponent implements OnInit {
   project: Project | any;
   projects: Project[] | any;
 
-  constructor(
-    private adminService: AdminService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.task = new Task();

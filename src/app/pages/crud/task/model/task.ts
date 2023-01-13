@@ -34,7 +34,6 @@ export class Task {
     revenue: number = 0,
     profitability: boolean = false,
 
-
   ) {
     this.name = name;
     this.logo = logo;
