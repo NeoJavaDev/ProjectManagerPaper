@@ -43,8 +43,8 @@ export class ProjectEditComponent implements OnInit {
       if(project.id == task.id) {
         task.project = project;
         return true;
-      }
-    }
+      };
+    };
   }
 
   public selectTask($event: Event, task: Task) {
@@ -55,7 +55,7 @@ export class ProjectEditComponent implements OnInit {
     } else {
       const i = this.project.tasks.indexOf(task);
       this.project.tasks.splice(i, 1);
-    }
+    };
   }
 
   public getTasks(): void {
@@ -98,6 +98,6 @@ export class ProjectEditComponent implements OnInit {
       this.adminService
         .updateProject(this.project)
         .subscribe(() => this.router.navigate(["/project", this.project.id]));
-    }
+    };
   }
 }

@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { AdminService } from 'app/layouts/admin-layout/admin.service';
 import { Task } from '../../task/model/task';
 import { Project } from '../model/project';
@@ -32,15 +32,15 @@ export class ProjectAddComponent implements OnInit {
       this.adminService
         .getProjectById(+projectId)
         .subscribe((project) => (this.project = project, this.projectTasks = this.project.tasks));
-    }
+    };
   }
 
-  public hasTask(task: Task, i: number): boolean {
+  public hasTask(task: Task): boolean {
     for (let project of this.projectTasks) {
       if(project.id == task.id) {
         task.project = project;
         return true;
-      }
+      };
     }
   }
 
@@ -52,7 +52,7 @@ export class ProjectAddComponent implements OnInit {
     } else {
       const i = this.project.tasks.indexOf(task);
       this.project.tasks.splice(i, 1);
-    }
+    };
   }
 
   public getTasks(): void {
@@ -65,5 +65,4 @@ export class ProjectAddComponent implements OnInit {
       }
     );
   }
-
 }

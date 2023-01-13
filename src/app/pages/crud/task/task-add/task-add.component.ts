@@ -1,6 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'app/layouts/admin-layout/admin.service';
 import { Project } from '../../project/model/project';
 import { Task } from '../model/task';
 

@@ -1,4 +1,3 @@
-import { end } from "@popperjs/core";
 import { Task } from "../../task/model/task";
 import { User } from "../../user/model/user";
 import { Project } from "./project";
@@ -39,8 +38,7 @@ export class ProjectEntity implements Project {
     cost: number = management + developer + software + hardware
                     + premises + furniture + sourcing + distribution,
     revenue: number = 0,
-    profitability: boolean = false,
-
+    profitability: boolean = false
   ){
     this.name = name;
     this.startDate = startDate;
@@ -57,6 +55,5 @@ export class ProjectEntity implements Project {
     this.cost = cost;
     this.revenue = revenue;
     this.profitability = profitability;
-
   }
 }

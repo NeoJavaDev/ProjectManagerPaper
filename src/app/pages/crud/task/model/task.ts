@@ -1,5 +1,4 @@
 import { Project } from "../../project/model/project";
-import { ProjectEntity } from "../../project/model/projectEntity";
 
 export class Task {
   id: number

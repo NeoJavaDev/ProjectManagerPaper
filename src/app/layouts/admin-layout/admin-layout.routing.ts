@@ -15,13 +15,11 @@ import { UserListComponent } from "app/pages/crud/user/user-list/user-list.compo
 import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { NotificationsComponent } from "../../pages/notifications/notifications.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
 import { UserProfileComponent } from "../../pages/user-profile/user-profile.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user", component: UserProfileComponent },
-  { path: "typography", component: TypographyComponent },
   { path: "icons", component: IconsComponent },
   { path: "notifications", component: NotificationsComponent },
 
