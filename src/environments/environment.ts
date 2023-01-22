@@ -5,5 +5,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:81/project-manager'
+  apiBaseUrl:
+    "http://neojavadev.eu-west-3.elasticbeanstalk.com/project-manager",
 };
+
